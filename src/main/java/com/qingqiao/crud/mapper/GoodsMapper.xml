@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qingqiao.crud.mapper.GoodsMapper">
+
+    <select id="queryAll" resultType="goods">
+        select * from goods
+    </select>
+
+    <insert id="insertGoods">
+        insert into goods(name,createDate,address,tid) values(#{name},#{createDate},#{address},#{tid});
+    </insert>
+
+    <delete id="deleteGoods" parameterType="integer">
+        delete from goods where id = #{id}
+    </delete>
+
+    <update id="updateGoods">
+        update goods set name = #{name},createDate=#{createDate},address=#{address},tid=#{tid} where id = #{id}
+    </update>
+    <select id="queryGoodsById" parameterType="integer" resultType="goods">
+        select * from goods where id = #{id}
+    </select>
+</mapper>
